@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Please <%= link_to 'Add Yourself', new_profile_path %> to the gSchool Roster</h2>
+  <p>Follow on twitter and github.</p>
+  <div class="row"><hr></div>
+
+  <% @profiles.each do |profile| %>
+      <div class="span3">
+        <div class="container">
+          <%= gravatar_image_tag profile.email, class: "img-circle" %>
+        </div>
+        <%= link_to 'Edit', edit_profile_path(profile) %>
+        <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <h3><%= link_to profile.name, profile %></h3>
+        <p class="lead">Uses <%= profile.text_editor %></p>
+        <%= hidden_phone(profile.phone) %>
+        <%= hidden_email(profile.email) %>
+        <%= fancy_twitter_link(profile.twitter) %>
+        <%= fancy_github_link(profile.github) %>
+
+      </div>
+
+  <% end %>
+</div>
