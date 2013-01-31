@@ -26,3 +26,4 @@ gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails"
 gem 'gravatar_image_tag', '1.0.0.pre2'
+gem 'lock'
