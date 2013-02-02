@@ -16,7 +16,13 @@
         <%= hidden_phone(profile.phone) %>
         <%= hidden_email(profile.email) %>
         <%= fancy_twitter_link(profile.twitter) %>
+
+        <div>
         <%= fancy_github_link(profile.github) %>
+        </div>
+
+        <script type="IN/MemberProfile" data-id="<%= profile.linkedin %>" data-format="hover" data-text="<%= profile.name %>" data-related="false"></script>
+
 
       </div>
 
