@@ -1,30 +1,46 @@
 <div class="container">
-  <h2>Please <%= link_to 'Add Yourself', new_profile_path %> to the gSchool Roster</h2>
-  <p>Follow on twitter and github.</p>
   <div class="row"><hr></div>
-
   <% @profiles.each do |profile| %>
       <div class="span3">
         <div class="container">
-          <%= gravatar_image_tag profile.email, class: "img-circle" %>
+          <p class="lead">
+            <%= link_to profile.name, "https://twitter.com/intent/user?screen_name=#{profile.twitter}" %>
+          </p>
+          <%= link_to gravatar_image_tag(profile.email, class: "img-circle pull-left"), "https://twitter.com/intent/user?screen_name=#{profile.twitter}" %>
         </div>
-        <%= link_to 'Edit', edit_profile_path(profile) %>
-        <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        <h3><%= link_to profile.name, profile %></h3>
-        <p class="lead">Uses <%= profile.text_editor %></p>
-        <%= hidden_phone(profile.phone) %>
-        <%= hidden_email(profile.email) %>
-        <%= fancy_twitter_link(profile.twitter) %>
-
         <div>
-        <%= fancy_github_link(profile.github) %>
+          <ul class="nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Info <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>Twitter:<%= "<a href='https://twitter.com/intent/user?screen_name=#{profile.twitter}'>#{profile.twitter}</a>".html_safe %></li>
+                <% if profile.text_editor != "" %>
+                    <li><%= profile.text_editor %> fo' life</li>
+                <% end %>
+                <% if profile.phone != "" %>
+                    <li><abbr title="<% profile.phone %>">P:</abbr>
+                      <%= hidden_phone(profile.phone) %></li>
+                <% end %>
+                <% if profile.email != "" %>
+                    <li><abbr title="<% profile.email %>">email:</abbr>
+                      <%= hidden_email(profile.email) %></li>
+                <% end %>
+                <% if profile.github != "" %>
+                    <li>github:
+                      <%= fancy_github_link(profile.github) %></li>
+                <% end %>
+                <% if profile.linkedin %>
+                    <li>linkedin:<script type="IN/MemberProfile" data-id="<%= profile.linkedin %>" data-format="hover" data-text="<%= profile.name %>" data-related="false"></script>
+                    </li>
+                <% end %>
+                <li class="divider"></li>
+                <li class="nav-header">Update:</li>
+                <li><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                <li><%= link_to 'Edit', edit_profile_path(profile) %></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-
-        <script type="IN/MemberProfile" data-id="<%= profile.linkedin %>" data-format="hover" data-text="<%= profile.name %>" data-related="false"></script>
-
-
       </div>
-
   <% end %>
 </div>

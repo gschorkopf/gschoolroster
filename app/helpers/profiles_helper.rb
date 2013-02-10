@@ -8,7 +8,7 @@ module ProfilesHelper
   end
 
   def fancy_twitter_link(twitter)
-    "<a href='https://twitter.com/#{twitter}' class='twitter-follow-button' data-show-count='true' data-lang='en'>".html_safe
+    "<a href='https://twitter.com/intent/user?screen_name=#{twitter}'".html_safe
   end
 
   def fancy_github_link(github)

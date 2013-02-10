@@ -1,6 +1,7 @@
 Groster::Application.routes.draw do
-  resources :profiles
+  devise_for :users
 
+  resources :profiles
 
 
   # The priority is based upon order of creation:
