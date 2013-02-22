@@ -12,32 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Franklin Webber XVI" %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.label :BlogURL %>
+    <%= f.text_field :phone, placeholder: "http://blairbuilds.herokuapp.com/" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :email %>(this is private, only used for gravatar picture)
+    <%= f.text_field :email, placeholder: "skijumpboy69@aol.com" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :twitter %>
+    <div class="input-prepend">
+      <span class="add-on">@</span>
+      <%= f.text_field :twitter, id: "prependedInput", placeholder: "steveklabnik" %>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
+    <%= f.label :github %>
+    <div class="input-prepend">
+      <span class="add-on">@</span>
+      <%= f.text_field :github, id: "prependedInput", placeholder: "steveklabnik" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :github %><br />
-    <%= f.text_field :github %>
-  </div>
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :text_editor %><br />
     <%= f.text_field :text_editor %>
-  </div>
+  </div> -->
     <div class="field">
-      <%= f.label :linkedin %><br />
-      <%= f.text_field :linkedin %>
+      <%= f.label :linkedin_UserName %> 
+      <%= f.text_field :linkedin, placeholder: "andersonblair" %>
     </div>
   <div class="actions">
     <%= f.submit %>
