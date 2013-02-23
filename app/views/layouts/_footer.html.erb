@@ -1,0 +1,16 @@
+<div class="navbar-wrapper">
+  <div class="navbar navbar-fixed-bottom">
+    <div class="container">
+      <% if user_signed_in? %>
+          <p class="lead">Signed in as <%= current_user.email %>,
+            <%= link_to "sign out?", destroy_user_session_path, :method => :delete %>
+          </p>
+      <% else %>
+          <p class="lead">
+            You're not signed in, and you're not allowed to ...
+            <!--  <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %> -->
+          </p>
+      <% end %>
+    </div>
+  </div> <!-- /.container -->
+</div><!-- /.navbar-wrapper -->

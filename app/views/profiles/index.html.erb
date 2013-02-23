@@ -12,12 +12,14 @@
       </div>
       <div>
         <ul class="nav">
-          <% unless profile.phone == "" %>
-            <i class='icon-bookmark'></i><%= fancy_web_link(profile.phone) %>
+          <% unless profile.blog == "" %>
+            <i class='icon-bookmark text-error'>
+              <small>
+                blog:
+              </small>
+            </i>
+            <%= fancy_web_link(profile.blog) %>
           <% end %>
-
-
-
           <% if profile.twitter %>
             <li>
               <%= fancy_twitter_link(profile.twitter) %>
@@ -28,7 +30,7 @@
           <% end %>
           <% if profile.linkedin %>
             <li>
-              <script type="IN/MemberProfile" data-id="<%= profile.linkedin %>" data-format="hover" data-text="<%= profile.name %>" data-related="false"></script>
+              <%= fancy_linkedin(profile) %>
             </li>
           <% end %>
           <% if user_signed_in? %>
@@ -37,7 +39,6 @@
           <li><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <li><%= link_to 'Edit', edit_profile_path(profile) %></li>
           <% else %>
-            <p>Sign in to delete</p>
           <% end %>
         </ul>
       </div>
