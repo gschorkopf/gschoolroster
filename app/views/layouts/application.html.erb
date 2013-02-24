@@ -4,10 +4,7 @@
   <title>gRoster</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <style type="text/css">
-    body {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
+    body {padding-top: 80px; padding-bottom: 80px;}
   </style>
 
   <%= javascript_include_tag "application" %>
@@ -25,7 +22,7 @@
 </head>
 <body>
 <%= render 'layouts/navbar' %>
-<div class="container">
+<div class="container span12">
   <%= yield %>
 </div>
 <%= render 'layouts/footer' %>

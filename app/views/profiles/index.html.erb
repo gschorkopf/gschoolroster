@@ -1,50 +1,56 @@
 <div class="container">
-  <div class="row"><hr></div>
-  <% @profiles.each do |profile| %>
-    <div class="span3">
-      <div class="container">
-        <p class="lead">
-          <%= link_to profile.name, profile %>
+<div class="row"><hr></div>
+  <ul class="thumbnails">
+    <% @profiles.each_with_index do |profile,i| %>
+      <li class="span3">
+        <div class="thumbnail">
+          <%= gravatar_image_tag(profile.email, class: "img-circle") %>
+          <h3 class=""><%= link_to profile.name.split[0], profile %></h3>
+          <p>
+            <ul class="unstyled">
+              <% unless profile.twitter == "" %>
+                <li>
+                  <%= fancy_twitter_link(profile.twitter) %>
+                </li>
+                <% else %>
+                 <li><small>No tweets</small></li>          
+              <% end %>
+
+              <% unless profile.github == "" %>
+                  <li>
+                    <%= fancy_github_link(profile.github) %>
+                  </li>
+                  <% else %>
+                 <li><small>No github...</small></li>
+              <% end %>
+
+              <% unless profile.blog == "" %>
+                <li>
+                  <%= fancy_web_link(profile.blog) %>
+                </li>
+                <% else %>
+                 <li><small>No blog...</small></li>
+              <% end %>
+
+              <% unless profile.linkedin == "" %>
+                <li>
+                  <%= fancy_linkedin(profile) %>
+                </li>
+                <% else %>
+                 <li><small>No linkedin...</small></li>
+              <% end %>
+
+              <% if user_signed_in? %>
+              <li class="divider"></li>
+              <li class="nav-header">Update:</li>
+              <li><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <li><%= link_to 'Edit', edit_profile_path(profile) %></li>
+              <% else %>
+              <% end %>
+            </ul>
           </p>
-          <%= link_to gravatar_image_tag(profile.email, 
-          class: "img-circle pull-left"), 
-            "https://twitter.com/intent/user?screen_name=#{profile.twitter}" %>
-      </div>
-      <div>
-        <ul class="nav">
-          <% unless profile.twitter == "" %>
-            <li>
-              <%= fancy_twitter_link(profile.twitter) %>
-            </li>            
-          <% end %>
-
-          <% unless profile.github == "" %>
-              <li>
-                <%= fancy_github_link(profile.github) %>
-              </li>
-          <% end %>
-
-          <% unless profile.blog == "" %>
-            <li>
-              <%= fancy_web_link(profile.blog) %>
-            </li>
-          <% end %>
-
-          <% unless profile.linkedin == "" %>
-            <li>
-              <%= fancy_linkedin(profile) %>
-            </li>
-          <% end %>
-
-          <% if user_signed_in? %>
-          <li class="divider"></li>
-          <li class="nav-header">Update:</li>
-          <li><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-          <li><%= link_to 'Edit', edit_profile_path(profile) %></li>
-          <% else %>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

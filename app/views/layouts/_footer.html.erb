@@ -1,22 +1,24 @@
-<div class="navbar-wrapper">
-  <div class="navbar navbar-fixed-bottom">
-    <div class="container">
-      <h2 class="small">
-        <%= link_to "Stories and New Features",
-        "https://www.pivotaltracker.com/projects/764339" %>
-      </h2>
-      <% if user_signed_in? %>
-        <p class="lead">
-          Signed in as <%= current_user.email %>,
-          <%= link_to "sign out?", destroy_user_session_path, :method => :delete %>
-        </p>
-      <% else %>          
-        <small>
-          <%= link_to "Sign Up", new_user_registration_path %>
-            or
-          <%= link_to "Sign In", new_user_session_path %>
-        </small>
-      <% end %>
-    </div>
-  </div> <!-- /.container -->
-</div><!-- /.navbar-wrapper -->
+<div class="row">
+  <div class="navbar-wrapper">
+    <div class="navbar navbar-fixed-bottom">
+      <div class="container">
+        <h2 class="small">
+          <%= link_to "Stories and New Features",
+          "https://www.pivotaltracker.com/projects/764339" %>
+        </h2>
+        <% if user_signed_in? %>
+          <p class="lead">
+            Signed in as <%= current_user.email %>,
+            <%= link_to "sign out?", destroy_user_session_path, :method => :delete %>
+          </p>
+        <% else %>          
+          <small>
+            <%= link_to "Sign Up", new_user_registration_path %>
+              or
+            <%= link_to "Sign In", new_user_session_path %>
+          </small>
+        <% end %>
+      </div>
+    </div> <!-- /.container -->
+  </div><!-- /.navbar-wrapper -->
+</div>
