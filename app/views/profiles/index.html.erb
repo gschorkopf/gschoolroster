@@ -12,27 +12,30 @@
       </div>
       <div>
         <ul class="nav">
-          <% unless profile.blog == "" %>
-            <i class='icon-bookmark text-error'>
-              <small>
-                blog:
-              </small>
-            </i>
-            <%= fancy_web_link(profile.blog) %>
-          <% end %>
-          <% if profile.twitter %>
+          <% unless profile.twitter == "" %>
             <li>
               <%= fancy_twitter_link(profile.twitter) %>
             </li>            
-          <% end %>  
-          <% if profile.github != "" %>
-              <li><%= fancy_github_link(profile.github) %></li>
           <% end %>
-          <% if profile.linkedin %>
+
+          <% unless profile.github == "" %>
+              <li>
+                <%= fancy_github_link(profile.github) %>
+              </li>
+          <% end %>
+
+          <% unless profile.blog == "" %>
+            <li>
+              <%= fancy_web_link(profile.blog) %>
+            </li>
+          <% end %>
+
+          <% unless profile.linkedin == "" %>
             <li>
               <%= fancy_linkedin(profile) %>
             </li>
           <% end %>
+
           <% if user_signed_in? %>
           <li class="divider"></li>
           <li class="nav-header">Update:</li>
