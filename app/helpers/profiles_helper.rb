@@ -1,4 +1,13 @@
 module ProfilesHelper
+  
+  def name_cleaner(name)
+    if name.length > 17
+      "#{name.split[0]} #{name.split[-1][0].upcase}"
+    else
+      "#{name.split[0]} #{name.split[-1]}"
+    end
+  end
+
 
   def fancy_twitter_link(twitter)
     "<a class='text-info' href='https://twitter.com/intent/user?screen_name=#{twitter}'>
@@ -14,7 +23,7 @@ module ProfilesHelper
 
   def fancy_linkedin(profile)
     a = profile.name.split
-    "<a target='_blank' class='text-inverse' href=#{valid_linkedin(profile.linkedin)}><i class='icon-linkedin'></i><b>#{a[0][0].upcase}. #{a[-1].capitalize}</b></a>".html_safe
+    "<a target='_blank' class='test-inverse' href=#{valid_linkedin(profile.linkedin)}><i class='icon-linkedin'></i>#{a[0][0].upcase}. #{a[-1].capitalize}</a>".html_safe
   end
 
   def valid_linkedin(input)
