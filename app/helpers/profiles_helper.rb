@@ -10,8 +10,9 @@ module ProfilesHelper
 
 
   def fancy_twitter_link(twitter)
-    "<a class='text-info' href='https://twitter.com/intent/user?screen_name=#{twitter}'>
-    <i class='icon-twitter'></i> #{twitter}</a>".html_safe
+    "<iframe allowtransparency='true' frameborder='0' scrolling='no'
+  src='//platform.twitter.com/widgets/follow_button.html?screen_name=#{twitter}'
+  style='width:300px; height:20px;'></iframe>".html_safe
   end
 
   def fancy_github_link(github)
