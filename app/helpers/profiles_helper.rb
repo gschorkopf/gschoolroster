@@ -35,7 +35,7 @@ module ProfilesHelper
   end
 
   def fancy_web_link(url)
-    "<a target='_blank' class='text-error' href=#{clean_link(url)} ><i class='icon-bookmark text-error'></i> blog: #{pretty_url(url)}</a>".html_safe
+    "<a target='_blank' class='text-error' href=#{clean_link(url)} ><i class='icon-bookmark text-error'></i> blog</a>".html_safe
   end
 
   def clean_link(url)
