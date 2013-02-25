@@ -1,23 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b><%= @profile.name %>
-</p>
+<div class="span3">
+  <%= gravatar_image_tag( @profile.email, alt: @profile.name , class: 'img-rounded', gravatar: { size: 300 }) %>  
+</div>
+<div class="span5">
+  <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-mini" %>  
+  <h1><b><%= @profile.name %></b></h1>
 
-<p>
-  <b>Twitter:</b><%= @profile.twitter %>
-</p>
+  <iframe allowtransparency="true" frameborder="0" scrolling="no"
+  src="//platform.twitter.com/widgets/follow_button.html?screen_name=<%= @profile.twitter %>"
+  style="width:300px; height:20px;"></iframe>
 
-<p>
-  <b>Github:</b><%= @profile.github %>
-</p>
+<a href="https://github.com/<%= @profile.github %>" class="github-follow-button">Follow On GitHub</a>
+<script type="text/javascript" src="http://octophile.com/widgets.js"></script>
 
-<p>
-  <b>blog:</b> <%= @profile.blog %>
-</p>
+<p class="lead"><%= fancy_web_link(@profile.blog) %></p>
+</div>
 
-
-
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>

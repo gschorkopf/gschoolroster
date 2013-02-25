@@ -47,7 +47,7 @@ module ProfilesHelper
   end
 
   def pretty_url(url)
-    url.gsub("http://","").gsub(".herokuapp.com", "").gsub("/","")
+    url.gsub("http://","")
   end
 
    def hidden_email(email)
