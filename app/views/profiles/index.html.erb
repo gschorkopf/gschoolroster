@@ -2,7 +2,7 @@
 <div class="row"><hr></div>
   <ul class="thumbnails">
     <% @profiles.each_with_index do |profile,i| %>
-      <li class="span3">
+      <li class="span3 clearfix">
         <div class="thumbnail">
           <%= gravatar_image_tag(profile.email, class: "img-circle") %>
           <h3 class=""><%= link_to name_cleaner(profile.name), profile %></h3>
