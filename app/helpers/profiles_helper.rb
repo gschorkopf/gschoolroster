@@ -23,7 +23,7 @@ module ProfilesHelper
 
   def fancy_linkedin(profile)
     a = profile.name.split
-    "<a target='_blank' class='test-inverse' href=#{valid_linkedin(profile.linkedin)}><i class='icon-linkedin'></i>#{a[0][0].upcase}. #{a[-1].capitalize}</a>".html_safe
+    "<a target='_blank' class='test-inverse' href=#{valid_linkedin(profile.linkedin)}><i class='icon-linkedin'></i> #{a[0][0].upcase}. #{a[-1].capitalize}</a>".html_safe
   end
 
   def valid_linkedin(input)
@@ -35,7 +35,7 @@ module ProfilesHelper
   end
 
   def fancy_web_link(url)
-    "<a target='_blank' class='text-error' href=#{clean_link(url)} ><i class='icon-bookmark text-error'></i> #{pretty_url(url)}</a>".html_safe
+    "<a target='_blank' class='text-error' href=#{clean_link(url)} ><i class='icon-bookmark text-error'></i> blog: #{pretty_url(url)}</a>".html_safe
   end
 
   def clean_link(url)

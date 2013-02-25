@@ -1,24 +1,43 @@
-<div class="row" >
-  <div class="navbar-wrapper">
+  <div class="row" >
     <div class="navbar navbar-fixed-bottom" style="background:black">
       <div class="container">
-        <h2 class="small">
-          <%= link_to "Stories and New Features",
-          "https://www.pivotaltracker.com/projects/764339" %>
-        </h2>
-        <% if user_signed_in? %>
-          <p class="lead">
-            Signed in as <%= current_user.email %>,
-            <%= link_to "sign out?", destroy_user_session_path, :method => :delete %>
-          </p>
-        <% else %>          
-          <small>
-            <%= link_to "Sign Up", new_user_registration_path %>
-              or
-            <%= link_to "Sign In", new_user_session_path %>
-          </small>
-        <% end %>
+        <div class="row">
+          <div class="span3">
+            <h5>
+              <%= link_to "View Project on Github",
+               "https://github.com/blairand/gschoolroster" %>
+            </h5>
+          </div>          
+
+          <div class="span3">
+            <h5>
+              <%= link_to "pivotaltracker for this project",
+              "https://www.pivotaltracker.com/projects/764339" %>
+            </h5>
+          </div>
+
+          <div class="span3">
+            <% if user_signed_in? %>
+              <p class="lead">
+                Signed in as <%= current_user.email %>,
+                <%= link_to "sign out?", destroy_user_session_path, :method => :delete %>
+              </p>
+            <% else %>          
+              <h5>
+                <%= link_to "Sign Up", new_user_registration_path %>
+                  or
+                <%= link_to "Sign In", new_user_session_path %>
+              </h5>
+            <% end %>
+          </div>
+          <div class="span3">
+            <h6 class="label label-inverse">
+              <%= link_to "send broken things to blair",
+                "http://blairbuilds.herokuapp.com"%>
+            </h6>
+          </div>    
+        </div>
       </div>
     </div> <!-- /.container -->
-  </div><!-- /.navbar-wrapper -->
+
 </div>
