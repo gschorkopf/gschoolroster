@@ -10,6 +10,17 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def contributors
+    profiles = []
+
+    # profiles << Profile.find(2)#blair
+    # profiles << Profile.find(6)#raph
+    profiles << Profile.find(1)#blair
+    profiles << Profile.find(11)#bradley
+
+    @profiles = profiles
+  end
+
   # GET /profiles/1
   # GET /profiles/1.json
   def show

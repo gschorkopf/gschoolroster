@@ -1,19 +1,18 @@
 <%= debug(params) if Rails.env.development? %>
   <div class="row" >
-    <div class="navbar navbar-fixed-bottom" style="background:black">
+    <div class="navbar navbar-fixed-bottom" id="header">
       <div class="container">
         <div class="row">
           <div class="span3">
             <h5>
               <%= link_to "View Project on Github",
-               "https://github.com/blairand/gschoolroster", class: "label label-inverse" %>
+               "https://github.com/blairand/gschoolroster" %>
             </h5>
           </div>          
 
           <div class="span3">
             <h5>
-              <%= link_to "pivotaltracker for this project",
-              "https://www.pivotaltracker.com/projects/764339", class: "label label-inverse" %>
+              <%= link_to "Contributors", contributors_path %>
             </h5>
           </div>
 
@@ -31,12 +30,6 @@
               </h5> -->
             <% end %>
           </div>
-          <div class="span3">
-            <h6 class="label label-inverse">
-              <%= link_to "send broken things to blair",
-                "https://github.com/blairand/gschoolroster/issues"%>
-            </h6>
-          </div>    
         </div>
       </div>
     </div> <!-- /.container -->

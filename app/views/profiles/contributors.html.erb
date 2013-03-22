@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Contributors</h1>
+  <ul class="thumbnails">
+    <% @profiles.each do |profile| %>
+      <li class="span4">
+        <%= gravatar_image_tag( profile.email, alt: profile.name , class: 'img-rounded thumbnail', gravatar: { size: 300 }) %>  
+        <h1><b><%= profile.name %></b></h1>
+        <a href="https://twitter.com/<%= profile.twitter %>" class="twitter-follow-button" data-show-count="true" data-size="large" data-lang="en">Follow <%= profile.twitter %></a>
+
+        <% unless profile.github == "" %>
+          <a href="https://github.com/<%= profile.github %>" class="github-follow-button">Follow On GitHub</a>
+          <script type="text/javascript" src="http://octophile.com/widgets.js"></script>
+        <% end %>
+
+        <p class="lead"><%= fancy_web_link(profile.blog) %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
