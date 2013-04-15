@@ -4,7 +4,7 @@ Groster::Application.routes.draw do
   resources :profiles
 
   match '/contributors' => 'profiles#contributors'
-
+  match '/pending' => "profiles#pending"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

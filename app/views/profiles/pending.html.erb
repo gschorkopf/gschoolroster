@@ -1,0 +1,19 @@
+<% @profiles.each_with_index do |profile,i| %>
+<div class="span2">
+  <ul>
+    <%= gravatar_image_tag(profile.email, class: "img-circle") %>
+    <li><%= profile.status %></li>
+    <li><%= link_to name_cleaner(profile.name), profile %></li>
+    <li><%= profile.twitter %></li>
+    <li><%= profile.github %></li>
+    <li><%= profile.blog %></li>
+    <li><%= profile.linkedin %></li>
+    <li>
+    <%= link_to 'Destroy', profile, 
+    method: :delete, 
+    data: { confirm: 'Are you sure?' } %>
+    </li>
+    <li><%= link_to 'Edit', edit_profile_path(profile) %></li>
+  </ul>
+</div>
+<% end %>
