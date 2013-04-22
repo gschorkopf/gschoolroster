@@ -7,7 +7,7 @@
           <%= gravatar_image_tag(profile.email, class: "img-circle") %>
           <h3 class=""><%= link_to name_cleaner(profile.name), profile %></h3>
           <p>
-            <ul class="unstyled">
+            <ul class="unstyled profile-details">
               <% unless profile.twitter == "" %>
                 <li>
                   <%= fancy_twitter_link(profile.twitter) %>
